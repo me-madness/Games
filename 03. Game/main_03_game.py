@@ -119,7 +119,7 @@ while not game_over:
                     drop_peace(board, row, col, 1)
             
                     if winning_move(board, 1):
-                        label = myfont.render("Player 1 Win The Game!!! Congrats!!!", 1, RED)
+                        label = myfont.render("Player 1 Wins!!", 1, RED)
                         screen.blit(label,(40,10))
                         game_over = True
             
@@ -134,7 +134,7 @@ while not game_over:
                     drop_peace(board, row, col, 2)
             
                     if winning_move(board, 2):
-                        label = myfont.render("Player 2 Win The Game!!! Congrats!!!", 1, YELLOW)
+                        label = myfont.render("Player 2 Wins!!", 1, YELLOW)
                         screen.blit(label,(40,10))
                         game_over = True
                 
@@ -145,5 +145,4 @@ while not game_over:
             turn = turn % 2     
 
             if game_over:
-                pygame.time.wait(3000)
-                   
+                pygame.time.wait(3000)                  
