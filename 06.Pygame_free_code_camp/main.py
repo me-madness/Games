@@ -1,13 +1,14 @@
 import pygame
+import random
 
-# Initiliaze the pygame
+# Initialize the pygame
 pygame.init()
 
 # Create the screen     
 screen = pygame.display.set_mode((800, 660))
 
 # Title and Icon
-pygame.display.set_caption("Space Invaders")
+pygame.display.set_caption("Dark Space Ship")
 icon = pygame.image.load('favicon.png')
 
 # Player
@@ -18,9 +19,10 @@ playerX_change = 0
 
 # Enemy
 enemyImg = pygame.image.load('enemy.png')
-enemyX = 370
-enemyY = 50
-enemyX_change = 0
+enemyX = random.randint(0, 800)
+enemyY = random.randint(50, 150)
+enemyX_change = 0.3
+enemyY_change = 40
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
@@ -50,7 +52,7 @@ while running:
             playerX_change = 0    
 
             
-            
+    # Checking for boundaries of spaceship so it doesn't go out of bounds        
     playerX += playerX_change
     
     if playerX <= 0:
@@ -58,6 +60,17 @@ while running:
     elif playerX >= 736:
         playerX = 736
         
+    # Enemy Movement
+    enemyX += enemyX_change
+    
+    if enemyX <= 0:
+        enemyX_change = 0.3
+        enemyY += enemyX_change
+    elif enemyX >= 736:
+        enemyX_change = -0.3
+        enemyY += enemyX_change
+        
+   
                        
     player(playerX, playerY)
     enemy(enemyX, enemyY)
