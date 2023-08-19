@@ -7,6 +7,9 @@ pygame.init()
 # Create the screen     
 screen = pygame.display.set_mode((800, 660))
 
+# Background
+background = pygame.image.load('planet_background.png')
+
 # Title and Icon
 pygame.display.set_caption("Dark Space Ship")
 icon = pygame.image.load('favicon.png')
@@ -35,13 +38,16 @@ def enemy(x, y):
 running = True
 while running:
     # RGB - Red, Green, Blue        
-    screen.fill((0, 0, 0))    
+    screen.fill((0, 0, 0)) 
+       
+    # Background Image
+    screen.blit(background, (0,0))
     
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
     
-    # If keystrokeis pressed check whether its right or left
+    # If keystrokes pressed check whether its right or left
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
             playerX_change = -0.3
@@ -65,10 +71,10 @@ while running:
     
     if enemyX <= 0:
         enemyX_change = 0.3
-        enemyY += enemyX_change
+        enemyY += enemyY_change
     elif enemyX >= 736:
         enemyX_change = -0.3
-        enemyY += enemyX_change
+        enemyY += enemyY_change
         
    
                        
