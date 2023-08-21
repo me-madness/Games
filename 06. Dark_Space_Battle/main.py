@@ -131,4 +131,5 @@ while running:
                        
     player(playerX, playerY)
     enemy(enemyX, enemyY)
+    # fire_bullet(bulletX, bulletY)
     pygame.display.update()        
