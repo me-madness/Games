@@ -80,7 +80,7 @@ while running:
             playerX_change = -0.5
         if event.key == pygame.K_RIGHT:
             playerX_change = 0.5   
-        if event.key == pygame.K_SPACE:
+        if event.key == pygame.K_DOWN:
             if bullet_state is "ready":
                 # Get the current coordinate of the spaceship
                 bulletX = playerX
