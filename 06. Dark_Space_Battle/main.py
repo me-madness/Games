@@ -29,11 +29,6 @@ enemyX_change = 0.3
 enemyY_change = 40
 
 # Bullet
-
-# Ready = You can't see the bullet on the screen
-
-# Fire - the bullet is currently moving
-
 bulletImg = pygame.image.load('bullet.png')
 bulletX = 0
 bulletY = 480
@@ -74,7 +69,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
     
-    # If keystrokes pressed check whether its right or left
+    # If keystrokes pressed check whether it's right or left
     if event.type == pygame.KEYDOWN:
         if event.key == pygame.K_LEFT:
             playerX_change = -0.5
