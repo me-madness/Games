@@ -18,7 +18,11 @@ def generate_random_fruits():
             elif r < 6:
                 fruits[row].append('orange')
             elif r < 8:
-                fruits[row].append('kiwi')        
+                fruits[row].append('kiwi')
+            else:
+                fruits[row].append('dynamite')
+    return fruits            
+                            
 fruits = generate_random_fruits()
 
 score = 0
