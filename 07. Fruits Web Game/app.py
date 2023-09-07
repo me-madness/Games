@@ -5,6 +5,20 @@ app = Flask(__name__)
 rows = 3
 cols = 9
 
+def generate_random_fruits():
+    fruits = [[] for row in range(rows)]
+    
+    for row in range(rows):
+        for col in range(cols):
+            r = random.randint(0, 8)
+            if r < 2:
+                fruits[row].append('apple')
+            elif r < 4:
+                fruits[row].append('banana')
+            elif r < 6:
+                fruits[row].append('orange')
+            elif r < 8:
+                fruits[row].append('kiwi')        
 fruits = generate_random_fruits()
 
 score = 0
