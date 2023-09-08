@@ -21,6 +21,10 @@
 <h2>Battle Field</h2>
 {% for row in range(rows) %}
     {% for col in range(cols) %}
-
+        <img src="/static/{{fruits[roe][col]}}.png">
+    {% endfor %}
+    <br />
+{% endfor %}    
+<h2>Score: <b>{{score}}</b></h2>
 </body>
 </html>
