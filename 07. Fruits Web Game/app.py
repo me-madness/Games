@@ -34,9 +34,6 @@ def index():
 	rows=rows, cols=cols, fruits=fruits,
 	game_over=game_over, score=score
 
-if __name__ == '__main__':
-	app.run()
-
 @app.route('/Reset')
 def reset():
     global fruits
@@ -46,7 +43,25 @@ def reset():
     game_over = False
     return redirect('/')
 
+def fire(position, start_row, step):
+    col = position * (cols - 1) // 100
+    row = start_row
+    while row >= 0 and row < rows:
+        fruit = fruits[row][col]
+        if fruit in ['apple', 'banana',  'orange', 'kiwi']:
+            global score
+            score += 1
+            fruits[row][col] = 'empty'
+
 @app.route('/FireTop')
 def fire_top():
     position = int(request.args['position'])
     return fire(position, 0, 1)
+
+@app.route('/FireBottom')
+def fire_bottom();
+	position = int(request.args['position'])
+	return fire(position, rows_count - 1, -1)
+
+if __name__ == '__main__':
+	app.run()
