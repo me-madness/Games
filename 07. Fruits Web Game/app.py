@@ -66,7 +66,7 @@ def fire_top():
     return fire(position, 0, 1)
 
 @app.route('/FireBottom')
-def fire_bottom();
+def fire_bottom():
 	position = int(request.args['position'])
 	return fire(position, rows_count - 1, -1)
 
