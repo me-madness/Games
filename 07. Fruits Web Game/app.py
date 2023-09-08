@@ -36,3 +36,17 @@ def index():
 
 if __name__ == '__main__':
 	app.run()
+
+@app.route('/Reset')
+def reset():
+    global fruits
+    fruits = generate_random_fruits()
+    
+    global game_over
+    game_over = False
+    return redirect('/')
+
+@app.route('/FireTop')
+def fire_top():
+    position = int(request.args['position'])
+    return fire(position, 0, 1)
