@@ -52,13 +52,13 @@ def fire(position, start_row, step):
             global score
             score += 1
             fruits[row][col] = 'empty'
-			break
-		elif fruit == 'dynamite':
-    		global game_over
-    		game_over = True
-    		break
-		row = row + step
-  	return redirect('/')
+            break
+        elif fruit == 'dynamite':
+            global game_over
+            game_over = True
+            break
+        row = row + step
+    return redirect('/')   
 
 @app.route('/FireTop')
 def fire_top():
