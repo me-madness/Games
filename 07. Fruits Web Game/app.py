@@ -1,6 +1,8 @@
 from flask \
     import Flask, render_template, redirect, request
 import random
+
+
 app = Flask(__name__)
 
 rows = 3
