@@ -68,7 +68,7 @@ def fire_top():
 @app.route('/FireBottom')
 def fire_bottom():
 	position = int(request.args['position'])
-	return fire(position, rows_count - 1, -1)
+	return fire(position, rows - 1, -1)
 
 if __name__ == '__main__':
 	app.run()
