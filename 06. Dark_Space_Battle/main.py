@@ -2,6 +2,7 @@ import math
 import random
 
 import pygame
+from pygame import mixer
 
 # Initialize the pygame
 pygame.init()
@@ -11,6 +12,10 @@ screen = pygame.display.set_mode((800, 660))
 
 # Background
 background = pygame.image.load('planet_background.png')
+
+# Background Sound
+mixer.music.load('background.wav')
+mixer.music.play(-1)
 
 # Title and Icon
 pygame.display.set_caption("Dark Space Battle")
@@ -102,6 +107,8 @@ while running:
             playerX_change = 0.5   
         if event.key == pygame.K_DOWN:
             if bullet_state is "ready":
+                bullet_sound = mixer.Sound('laser.wav')
+                bullet_sound.play()
                 # Get the current coordinate of the spaceship
                 bulletX = playerX
                 fire_bullet(bulletX, bulletY)
