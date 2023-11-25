@@ -24,7 +24,9 @@ playerX_change = 0
 # Enemy
 enemyImg = []
 enemyX = []
-
+enemyY = []
+enemyX_change = []
+enemyY_change = []
 enemyImg = pygame.image.load('enemy2.png')
 enemyX = random.randint(0, 735)
 enemyY = random.randint(50, 150)
