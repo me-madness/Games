@@ -104,15 +104,15 @@ while running:
         playerX = 736
         
     # Enemy Movement
-    enemyX += enemyX_change
-    
-    if enemyX <= 0:
-        enemyX_change = 0.2
-        enemyY += enemyY_change
-    elif enemyX >= 736:
-        enemyX_change = -0.2
-        enemyY += enemyY_change
-    
+    for i in range(num_of_enemies):
+        enemyX[i] += enemyX_change[i]
+        if enemyX[i] <= 0:
+            enemyX_change[i] = 0.2
+            enemyY[i] += enemyY_change[i]
+        elif enemyX[i] >= 736:
+            enemyX_change[i] = -0.2
+            enemyY[i] += enemyY_change[i]
+        
     # Bullet Movement
     if bulletY <= 0:
         bulletY = 480
