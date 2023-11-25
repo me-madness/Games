@@ -15,6 +15,7 @@ background = pygame.image.load('planet_background.png')
 # Title and Icon
 pygame.display.set_caption("Dark Space Battle")
 icon = pygame.image.load('favicon.png')
+pygame.display.set_icon(icon)
 
 # Player
 playerImg = pygame.image.load('player1.png')
@@ -44,18 +45,31 @@ bulletY = 480
 bulletX_change = 0
 bulletY_change = 10
 bullet_state = "ready"
-score = 0
+
+# Score
+
+score_value = 0
+font = pygame.font.Font('freesansbold.ttf', 32)
+textX = 10
+textY = 10
+
+def show_score(x, y):
+    score = font.render("Score: " + str(score_value), True, (255, 255, 255))
+
 
 def player(x, y):
     screen.blit(playerImg, (x, y))
     
+    
 def enemy(x, y, i):
     screen.blit(enemyImg[i], (x, y))    
+    
     
 def fire_bullet(x, y):
     global bullet_state
     bullet_state = "fire"
     screen.blit(bulletImg, (x + 16, y + 10))
+
 
 def isCollision(enemyX, enemyY, bulletX, bulletY):
     distance = math.sqrt((math.pow(enemyX - bulletX, 2)) + (math.pow(enemyY - bulletY, 2)))
@@ -63,8 +77,10 @@ def isCollision(enemyX, enemyY, bulletX, bulletY):
         return True
     else:
         return False     
+
         
 # Game Loop
+
 running = True
 while running:
     # RGB - Red, Green, Blue        
@@ -118,7 +134,7 @@ while running:
         if collision:
             bulletY = 480
             bullet_state = "ready"
-            score += 1
+            score_value += 1
             enemyX[i] = random.randint(0, 735)
             enemyY[i] = random.randint(50, 150)
             
