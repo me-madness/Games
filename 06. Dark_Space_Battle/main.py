@@ -129,6 +129,13 @@ while running:
         
     # Enemy Movement
     for i in range(num_of_enemies):
+        
+        # Game Over
+        if enemyY[i] > 200:
+            for j in range(num_of_enemies):
+                
+        
+        
         enemyX[i] += enemyX_change[i]
         if enemyX[i] <= 0:
             enemyX_change[i] = 0.2
@@ -140,6 +147,8 @@ while running:
             # Collision
         collision = isCollision(enemyX[i], enemyY[i], bulletX, bulletY)
         if collision:
+            explosion_sound = mixer.Sound('explosion.wav')
+            explosion_sound.play()
             bulletY = 480
             bullet_state = "ready"
             score_value += 1
